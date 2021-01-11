@@ -19,7 +19,6 @@ namespace ComputersInventory.DAL
 
         public virtual DbSet<Computer> Computers { get; set; }
         public virtual DbSet<ComputerType> ComputerTypes { get; set; }
-        public virtual DbSet<ComputerTypeField> ComputerTypeFields { get; set; }
         public virtual DbSet<FormFactor> FormFactors { get; set; }
         public virtual DbSet<ScreenSize> ScreenSizes { get; set; }
 
@@ -70,26 +69,7 @@ namespace ComputersInventory.DAL
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<ComputerTypeField>(entity =>
-            {
-                entity.Property(e => e.FieldName)
-                    .HasMaxLength(1000)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.ModifiedBy)
-                    .HasMaxLength(1000)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.ModifiedDate)
-                    .HasMaxLength(10)
-                    .IsFixedLength(true);
-
-                entity.HasOne(d => d.ComputerType)
-                    .WithMany(p => p.ComputerTypeFields)
-                    .HasForeignKey(d => d.ComputerTypeId)
-                    .HasConstraintName("FK_ComputerTypeFields_ComputerType");
-            });
-
+     
             modelBuilder.Entity<FormFactor>(entity =>
             {
                 entity.ToTable("FormFactor");

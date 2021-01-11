@@ -9,7 +9,6 @@ namespace ComputersInventory.DAL
     {
         public ComputerType()
         {
-            ComputerTypeFields = new HashSet<ComputerTypeField>();
             Computers = new HashSet<Computer>();
         }
 
@@ -27,7 +26,6 @@ namespace ComputersInventory.DAL
         public bool IsActive { get; set; }
         public DateTime? CreatedDate { get; set; }
 
-        public virtual ICollection<ComputerTypeField> ComputerTypeFields { get; set; }
         public virtual ICollection<Computer> Computers { get; set; }
     }
 }

@@ -1,7 +1,6 @@
 using ComputersInventory.DAL;
 using ComputersInventory.DAL.DomainModels;
 using Newtonsoft.Json;
-using System;
 using System.Net.Http;
 using System.Text;
 using Xunit;
